@@ -48,6 +48,12 @@ export class RecipeEditComponent implements OnInit {
       })
     )
   }
+  // Added to fix the bug -- Property 'controls' does not exist on type 'AbstractControl'
+  onGetIngredient(){
+    return (<FormArray>this.recipeForm.get('ingredients')).controls
+  }
+  //-----------------end fixes ---------------------------------
+  
   onDeleteIngredient(index:number){
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
   }
